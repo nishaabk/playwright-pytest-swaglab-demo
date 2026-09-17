@@ -1,0 +1,4 @@
+INFO     root:login.py:13 Navigating to application URL
+INFO     root:login.py:17 Entering username:HI
+INFO     root:login.py:20 Entering password
+INFO     root:login.py:23 Clicking login button

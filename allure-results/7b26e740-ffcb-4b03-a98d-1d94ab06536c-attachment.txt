@@ -1,0 +1,4 @@
+[32mINFO    [0m root:login.py:13 Navigating to application URL
+[32mINFO    [0m root:login.py:17 Entering username:USER
+[32mINFO    [0m root:login.py:20 Entering password
+[32mINFO    [0m root:login.py:23 Clicking login button

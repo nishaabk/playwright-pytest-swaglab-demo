@@ -1,0 +1,7 @@
+[32mINFO    [0m root:test_login.py:15 Starting Login Test
+[32mINFO    [0m root:login.py:13 Navigating to application URL
+[32mINFO    [0m root:test_login.py:19 Attempting login usingperformance_glitch_user
+[32mINFO    [0m root:login.py:17 Entering username:performance_glitch_user
+[32mINFO    [0m root:login.py:20 Entering password
+[32mINFO    [0m root:login.py:23 Clicking login button
+[32mINFO    [0m root:test_login.py:22 Login Successful

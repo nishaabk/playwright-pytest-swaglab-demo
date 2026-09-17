@@ -1,0 +1,7 @@
+INFO     root:test_login.py:15 Starting Login Test
+INFO     root:login.py:13 Navigating to application URL
+INFO     root:test_login.py:19 Attempting login usingproblem_user
+INFO     root:login.py:17 Entering username:problem_user
+INFO     root:login.py:20 Entering password
+INFO     root:login.py:23 Clicking login button
+INFO     root:test_login.py:22 Login Successful

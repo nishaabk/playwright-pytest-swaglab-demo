@@ -1,0 +1,21 @@
+2026-09-11 16:43:12,590 - INFO - Starting Login Test
+2026-09-11 16:43:12,590 - INFO - Navigating to application URL
+2026-09-11 16:43:14,585 - INFO - Attempting login usingstandard_user
+2026-09-11 16:43:14,586 - INFO - Entering username:standard_user
+2026-09-11 16:43:14,691 - INFO - Entering password
+2026-09-11 16:43:14,704 - INFO - Clicking login button
+2026-09-11 16:43:14,781 - INFO - Login Successful
+2026-09-11 16:43:15,099 - INFO - Starting Login Test
+2026-09-11 16:43:15,100 - INFO - Navigating to application URL
+2026-09-11 16:43:17,045 - INFO - Attempting login usingproblem_user
+2026-09-11 16:43:17,046 - INFO - Entering username:problem_user
+2026-09-11 16:43:17,128 - INFO - Entering password
+2026-09-11 16:43:17,138 - INFO - Clicking login button
+2026-09-11 16:43:17,217 - INFO - Login Successful
+2026-09-11 16:43:17,495 - INFO - Starting Login Test
+2026-09-11 16:43:17,495 - INFO - Navigating to application URL
+2026-09-11 16:43:19,275 - INFO - Attempting login usingperformance_glitch_user
+2026-09-11 16:43:19,275 - INFO - Entering username:performance_glitch_user
+2026-09-11 16:43:19,359 - INFO - Entering password
+2026-09-11 16:43:19,369 - INFO - Clicking login button
+2026-09-11 16:43:19,411 - INFO - Login Successful
