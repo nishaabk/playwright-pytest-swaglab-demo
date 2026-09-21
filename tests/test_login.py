@@ -20,6 +20,7 @@ def test_loginpage(username,page):
     loginpage.login(username,config["password"])
     assert "inventory.html" in page.url
     logger.info("Login Successful")
+    page.screenshot(path="../Results/screenshot1.png")
 
 #invalidusername
 @pytest.mark.parametrize("username",INVALID_USERNAME)
