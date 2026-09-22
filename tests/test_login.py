@@ -1,5 +1,8 @@
+from pathlib import Path
 
 import pytest
+
+from pageobjects.LogoutPage import LogoutPage
 from pageobjects.login import login
 from test_data import VALID_USERS, INVALID_PASSWORD, BLANK_VALUE, INVALID_USERNAME
 from utils.config_reader import ConfigReader
@@ -55,5 +58,30 @@ def test_blankusername(page):
 
 
 
+@pytest.mark.parametrize("username", INVALID_USERNAME)
+def test_loginfailure(page, username):
 
+    trace_folder = Path("test-results") / f"logoutfailure-{username}"
+    trace_folder.mkdir(parents=True, exist_ok=True)
+
+    page.context.tracing.start(
+        screenshots=True,
+        snapshots=True,
+        sources=True
+    )
+
+    try:
+        loginpage = login(page)
+        loginpage.navigate()
+        loginpage.login(username, config["password"])
+
+        logout = LogoutPage(page)
+        logout.logoutpage()
+
+        assert page.locator("#login-button").is_visible()
+
+    finally:
+        page.context.tracing.stop(
+            path=trace_folder / "trace.zip"
+        )
 

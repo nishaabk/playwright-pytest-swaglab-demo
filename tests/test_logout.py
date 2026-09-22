@@ -16,15 +16,5 @@ def test_logout(page,username):
     assert page.locator("#login-button").is_visible()
 
 
-@pytest.mark.parametrize("username", INVALID_USERNAME)
-def test_logoutfailure(page, username):
 
-    loginpage = login(page)
-    loginpage.navigate()
-    loginpage.login(username, config["password"])
-
-    logout = LogoutPage(page)
-    logout.logoutpage()
-
-    assert page.locator("#login-button").is_visible()
 
