@@ -61,7 +61,7 @@ def test_blankusername(page):
 @pytest.mark.parametrize("username", INVALID_USERNAME)
 def test_loginfailure(page, username):
 
-    trace_folder = Path("test-results") / f"logoutfailure-{username}"
+    trace_folder = Path("test-results") / f"invalidusername-{username}"
     trace_folder.mkdir(parents=True, exist_ok=True)
 
     page.context.tracing.start(
@@ -75,13 +75,9 @@ def test_loginfailure(page, username):
         loginpage.navigate()
         loginpage.login(username, config["password"])
 
-        logout = LogoutPage(page)
-        logout.logoutpage()
-
-        assert page.locator("#login-button").is_visible()
+        assert "inventory.html" in page.url
 
     finally:
         page.context.tracing.stop(
             path=trace_folder / "trace.zip"
         )
-
