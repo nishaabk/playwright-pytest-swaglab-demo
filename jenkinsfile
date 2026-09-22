@@ -31,12 +31,11 @@ pipeline {
 
     post {
         always {
-
-            archiveArtifacts artifacts: 'test-results/**/*', allowEmptyArchive: t***
+            archiveArtifacts artifacts: 'test-results/**/*', allowEmptyArchive: true
 
             allure([
                 results: [[path: 'allure-results']]
             ])
         }
-  ***
+    }
 }
