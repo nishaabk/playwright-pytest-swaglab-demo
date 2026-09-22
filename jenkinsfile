@@ -11,7 +11,7 @@ pipeline {
 
         stage('Install Playwright') {
             steps {
-                bat 'python -m playwright install'
+                bat 'python -m playwright install chromium'
             }
         }
 
@@ -21,6 +21,7 @@ pipeline {
                     python -m pytest ^
                     --alluredir=allure-results ^
                     --screenshot=only-on-failure ^
+                    --full-page-screenshot ^
                     --tracing=retain-on-failure ^
                     --output=test-results
                 '''
@@ -32,11 +33,11 @@ pipeline {
         always {
 
             archiveArtifacts artifacts: 'test-results/**/*',
-                             allowEmptyArchive: true
+                   ***       allowEmptyArchive: true
 
-            allure([
+***         allure([
                 results: [[path: 'allure-results']]
             ])
         }
     }
-}
+}***

@@ -1,11 +1,9 @@
-import time
 import pytest
 
-@pytest.fixture(scope="function")
-def page(playwright):
-    browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context()
-    page = context.new_page()
-    yield page
-    time.sleep(5)
-    browser.close()
+
+@pytest.fixture(scope="session")
+def browser_type_launch_args(browser_type_launch_args):
+    return {
+        **browser_type_launch_args,
+        "headless": True
+    }
