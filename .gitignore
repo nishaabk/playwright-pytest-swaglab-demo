@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Playwright generated files
+Results/
+test-results/
+
+# Allure generated files
+allure-results/
+allure-report/
