@@ -56,11 +56,17 @@ def test_blankusername(page):
 
 
 
+
 @pytest.mark.parametrize("username", INVALID_USERNAME)
 def test_loginfailure(page, username):
 
-    trace_folder = Path("test-results") / f"invalidusername-{username}"
+    logger.info("===== Login failure test started =====")
+    logger.info(f"Testing with invalid username: {username}")
+
+    trace_folder = Path("test-results") / f"invalid username-{username}"
     trace_folder.mkdir(parents=True, exist_ok=True)
+
+    logger.info(f"Trace folder: {trace_folder}")
 
     page.context.tracing.start(
         screenshots=True,
@@ -68,13 +74,50 @@ def test_loginfailure(page, username):
         sources=True
     )
 
+    logger.info("Playwright tracing started")
+
     try:
         loginpage = login(page)
+
+        logger.info("Navigating to login page")
         loginpage.navigate()
+
+        logger.info(f"Trying login with username: {username}")
         loginpage.login(username, config["password"])
+
+        logger.info(f"Current URL after login: {page.url}")
+
+        # Intentionally expecting success even though username is invalid.
+        # This should make the test FAIL.
         assert "inventory.html" in page.url
 
-    finally:
-        page.context.tracing.stop(
-            path=trace_folder / "trace.zip"
+        logger.info("Login successful")
+
+    except AssertionError:
+
+        logger.error(
+            f"TEST FAILED: inventory.html not found in URL. "
+            f"Current URL: {page.url}"
         )
+
+        # VERY IMPORTANT
+        raise
+
+    except Exception:
+
+        logger.exception(
+            f"Unexpected exception occurred for username: {username}"
+        )
+
+        raise
+
+    finally:
+
+        trace_path = trace_folder / "trace.zip"
+
+        page.context.tracing.stop(
+            path=trace_path
+        )
+
+        logger.info(f"Trace saved at: {trace_path}")
+        logger.info("===== Login failure test completed =====")
