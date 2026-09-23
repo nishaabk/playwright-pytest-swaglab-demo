@@ -34,7 +34,8 @@ pipeline {
                     --alluredir=allure-results ^
                     --screenshot=only-on-failure ^
                     --full-page-screenshot ^
-                    --output=test-results
+                    --output=test-results^
+                    --log-cli-level=INFO
                 '''
             }
         }
